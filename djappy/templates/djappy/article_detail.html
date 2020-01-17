@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class='main-contents'>
+    <div class='main-contents__box'>
+        <h2 class='main-contents__box__head'>
+            {{ article.title }}
+        </h2>
+        <p>{{ article.content }}</p>
+    </div>
+</div>
+
+{% endblock %}

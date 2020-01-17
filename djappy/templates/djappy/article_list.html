@@ -10,9 +10,9 @@
         <div class='top-articles top-border'>
             {% for article in object_list %}
               <div class='top-article'>
-                  <div class='top-article__box'>
+                  <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
                     <p>{{ article.title }}</p>
-                  </div>
+                  </a>
               </div>
             {% endfor %}
         </div>
