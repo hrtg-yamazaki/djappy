@@ -6,12 +6,43 @@
 <h2 class='main-contents__box__head'>
     {{ article.title }}
 </h2>
-<p>{{ article.content }}</p>
+<div class='article-info'>
+    <div class='article-info__box'>
+        <span class='article-info__box__datetime'>
+            投稿：{{ article.created_at }}
+            {% if article.created_at != article.updated_at %}
+                (編集済)
+            {% endif %}
+        </span>
+        <span class='article-info__box__author'>
+            {{ article.author }}さん
+        </span>
+    </div>
+</div>
 
-{% if request.user.id == object.author_id %}
-    <a href='{% url "djappy:update" article.pk %}'>記事の編集</a>
-    <a href='{% url "djappy:delete" article.pk %}'>記事の削除</a>
-{% endif %}
+<div class='article-image'>
+    <div class='article-image__box'>
+        {% comment %} <img src=> {% endcomment %}
+    </div>
+</div>
+
+<div class='article-content'>
+    <div class='article-content__box'>
+        <p class='article-content__box__text'>
+            {{ article.content | linebreaksbr }}
+        </p>
+    </div>
+</div>
+
+<div class='article-footer'>
+    {% if request.user.id == object.author_id %}
+        <a href='#' class='article-footer__link'>自分の投稿一覧</a>
+        <a href='{% url "djappy:update" article.pk %}' class='article-footer__link'>記事の編集</a>
+        <a href='{% url "djappy:delete" article.pk %}' class='article-footer__link'>記事の削除</a>
+    {% else %}
+        <a href='#' class='article-footer__link'>ユーザーの記事一覧</a>
+    {% endif %}
+</div>
 
 
 {% endblock %}
