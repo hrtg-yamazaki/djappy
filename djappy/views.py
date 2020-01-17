@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from .models import Article
 
 
@@ -12,17 +14,33 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return super().get_queryset().order_by('-created_at')
 
+
 class DetailView(generic.DetailView):
     model = Article
 
-class CreateView(generic.edit.CreateView):
+
+class CreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = Article
     fields = '__all__'
 
-class UpdateView(generic.edit.UpdateView):
+
+class UpdateView(LoginRequiredMixin, generic.edit.UpdateView):
     model = Article
     fields = '__all__'
 
-class DeleteView(generic.edit.DeleteView):
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise PermissionDenied('編集権限がありません')
+        return super(UpdateView, self).dispatch(request, *args, **kwargs)
+
+
+class DeleteView(LoginRequiredMixin, generic.edit.DeleteView):
     model = Article
     success_url = reverse_lazy('djappy:index')
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise PermissionDenied('削除権限がありません')
+        return super(DeleteView, self).dispatch(request, *args, **kwargs)

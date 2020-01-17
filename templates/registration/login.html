@@ -5,14 +5,14 @@
 <h2 class='main-contents__box__head'>ログイン</h2>
 <div>
     {% if form.errors %}
-        <p>もう一度入力してください</p>
+        <p>もう一度入力してください。</p>
     {% endif %}
 
     {% if next %}
         {% if user.is_authenticated %}
-            <p>このページにはアクセス権限がありません</p>
+            <p>このページにはアクセス権限がありません。</p>
         {% else %}
-            <p>ログインが必要です</p>
+            <p>このページへのアクセスにはログインが必要です。</p>
         {% endif %}
     {% endif %}
 

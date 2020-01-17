@@ -8,8 +8,10 @@
 </h2>
 <p>{{ article.content }}</p>
 
-<a href='{% url "djappy:update" article.pk %}'>この記事を編集する</a>
-<a href='{% url "djappy:delete" article.pk %}'>この記事を削除する</a>
+{% if request.user.id == object.author_id %}
+    <a href='{% url "djappy:update" article.pk %}'>記事の編集</a>
+    <a href='{% url "djappy:delete" article.pk %}'>記事の削除</a>
+{% endif %}
 
 
 {% endblock %}
