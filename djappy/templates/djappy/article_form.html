@@ -2,21 +2,15 @@
 
 {% block content %}
 
-<div class='main-contents'>
-    <div class='main-contents__box'>
+<h2 class='main-contents__box__head'>
+    記事の{{ object|yesno:'更新,作成' }}
+</h2>
 
-        <h2 class='main-contents__box__head'>
-            記事の{{ object|yesno:'更新,作成' }}
-        </h2>
-
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type='submit' class='submit'>{{ object|yesno:'更新,作成' }}</button>
-        </form>
-
-    </div>
-</div>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit' class='submit'>{{ object|yesno:'更新,作成' }}</button>
+</form>
 
 {% endblock %}
 

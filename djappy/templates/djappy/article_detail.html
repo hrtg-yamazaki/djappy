@@ -2,16 +2,14 @@
 
 {% block content %}
 
-<div class='main-contents'>
-    <div class='main-contents__box'>
-        <h2 class='main-contents__box__head'>
-            {{ article.title }}
-        </h2>
-        <p>{{ article.content }}</p>
 
-        <a href='{% url "djappy:update" article.pk %}'>この記事を編集する</a>
-        <a href='{% url "djappy:delete" article.pk %}'>この記事を削除する</a>
-    </div>
-</div>
+<h2 class='main-contents__box__head'>
+    {{ article.title }}
+</h2>
+<p>{{ article.content }}</p>
+
+<a href='{% url "djappy:update" article.pk %}'>この記事を編集する</a>
+<a href='{% url "djappy:delete" article.pk %}'>この記事を削除する</a>
+
 
 {% endblock %}

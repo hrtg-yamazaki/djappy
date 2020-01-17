@@ -2,22 +2,20 @@
 
 {% block content %}
 
-<div class='main-contents'>
-    <div class='main-contents__box'>
-        <h2 class='main-contents__box__head'>
-            最新記事
-        </h2>
-        <div class='top-articles top-border'>
-            {% for article in object_list %}
-              <div class='top-article'>
-                  <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
-                    <p>{{ article.title }}</p>
-                  </a>
-              </div>
-            {% endfor %}
-        </div>
-    </div>
+
+<h2 class='main-contents__box__head'>
+    最新記事
+</h2>
+<div class='top-articles top-border'>
+    {% for article in object_list %}
+      <div class='top-article'>
+          <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
+            <p>{{ article.title }}</p>
+          </a>
+      </div>
+    {% endfor %}
 </div>
+  
 
 {% endblock %}
 
