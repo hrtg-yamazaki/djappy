@@ -8,6 +8,8 @@
             {{ article.title }}
         </h2>
         <p>{{ article.content }}</p>
+
+        <a href='{% url "djappy:update" article.pk %}'>この記事を編集する</a>
     </div>
 </div>
 

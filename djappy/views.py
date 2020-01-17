@@ -13,3 +13,11 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Article
+
+class CreateView(generic.edit.CreateView):
+    model = Article
+    fields = '__all__'
+
+class UpdateView(generic.edit.UpdateView):
+    model = Article
+    fields = '__all__'
