@@ -22,11 +22,51 @@
     </header>
 
     <div class='container'>
-
-      {% block content %}
-      {% endblock %}
-      
-    </div>
+        <div class='top-wrapper clearfix'>
+            <div class='top-wrapper__left'>
+                <div class='top-wrapper__left__box'>
+                    <div class='side-bar'>
+                        <ul class='side-bar__box'>
+                            <h3 class='side-bar__box__head'>
+                                ナビタイトル
+                            </h3>
+                            <li class='side-bar__box__content'>
+                                <a href='#' class='side-bar-link'>カテゴリ</a>
+                            </li>
+                            <li class='side-bar__box__content'>
+                                <a href='#' class='side-bar-link'>カテゴリ</a>
+                            </li>
+                            <li class='side-bar__box__content' >
+                                <a href='#' class='side-bar-link'>カテゴリ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class='side-bar serve-bar'>
+                        <ul class='side-bar__box'>
+                            <div class='side-bar__box__head'>
+                                <h3 class='side-head'>ナビタイトル</p>
+                            </div>
+                            <li class='side-bar__box__content'>
+                                <a href='#' class='side-bar-link'>カテゴリ</a>
+                            </li>
+                            <li class='side-bar__box__content'>
+                                <a href='#' class='side-bar-link'>カテゴリ</a>
+                            </li>
+                            <li class='side-bar__box__content' >
+                                <a href='#' class='side-bar-link'>カテゴリ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class='top-wrapper__right'>
+                <div class='top-wrapper__right__box'>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+      </div>
 
     <footer class='footer'>
         <div class='footer__box'>

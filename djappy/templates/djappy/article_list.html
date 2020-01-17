@@ -2,61 +2,19 @@
 
 {% block content %}
 
-<div class='top-wrapper clearfix'>
-    <div class='top-wrapper__left'>
-        <div class='top-wrapper__left__box'>
-            <div class='navi-bar'>
-                <ul class='navi-bar__box'>
-                    <h3 class='navi-bar__box__head'>
-                        ナビタイトル
-                    </h3>
-                    <li class='navi-bar__box__content'>
-                        <a href='#' class='navi-bar-link'>カテゴリ</a>
-                    </li>
-                    <li class='navi-bar__box__content'>
-                        <a href='#' class='navi-bar-link'>カテゴリ</a>
-                    </li>
-                    <li class='navi-bar__box__content' >
-                        <a href='#' class='navi-bar-link'>カテゴリ</a>
-                    </li>
-                </ul>
-            </div>
-            <div class='navi-bar serve-bar'>
-                <ul class='navi-bar__box'>
-                    <div class='navi-bar__box__head'>
-                        <h3 class='navi-head'>ナビタイトル</p>
-                    </div>
-                    <li class='navi-bar__box__content'>
-                        <a href='#' class='navi-bar-link'>カテゴリ</a>
-                    </li>
-                    <li class='navi-bar__box__content'>
-                        <a href='#' class='navi-bar-link'>カテゴリ</a>
-                    </li>
-                    <li class='navi-bar__box__content' >
-                        <a href='#' class='navi-bar-link'>カテゴリ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class='top-wrapper__right'>
-        <div class='top-wrapper__right__box'>
-            <div class='main-contents'>
-                <div class='main-contents__box'>
-                    <h2 class='main-contents__box__head'>
-                        最新記事
-                    </h2>
-                    <div class='top-articles top-border'>
-                        {% for article in object_list %}
-                          <div class='top-article'>
-                              <div class='top-article__box'>
-                                <p>{{ article.title }}</p>
-                              </div>
-                          </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
+<div class='main-contents'>
+    <div class='main-contents__box'>
+        <h2 class='main-contents__box__head'>
+            最新記事
+        </h2>
+        <div class='top-articles top-border'>
+            {% for article in object_list %}
+              <div class='top-article'>
+                  <div class='top-article__box'>
+                    <p>{{ article.title }}</p>
+                  </div>
+              </div>
+            {% endfor %}
         </div>
     </div>
 </div>

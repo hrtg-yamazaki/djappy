@@ -102,3 +102,70 @@ $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
 .footer-link:hover{
   color: steelblue;
 }
+
+// *** 枠組み *** //
+.top-wrapper{
+  padding: 0 40px;
+  &__left{
+    width: 30%;
+    float: left;
+    &__box{
+      padding: 20px;
+    }
+  }
+  &__right{
+    width: 70%;
+    float: right;
+    &__box{
+      padding: 20px;
+    }
+  }
+}
+
+.side-bar{
+  box-shadow: $default_shadow;
+  &__box{
+    padding: 10px;
+    &__head{
+      border-bottom: 1px solid lightgray;
+      background-color: $midnight;
+      padding: 10px;
+      color: whitesmoke;
+    }
+    &__content{
+      text-align: center;
+      border-bottom: 1px solid lightgray;
+    }
+  }
+}
+
+.side-bar-link{
+  padding: 10px;
+  display: block;
+  color: $pencil;
+  cursor: pointer;
+}
+
+.side-bar-link:hover{
+  background-color: steelblue;
+  color: whitesmoke;
+}
+
+.serve-bar{
+  margin-top: 20px;
+}
+
+.main-contents{
+  box-shadow: $default_shadow;
+  color: $pencil;
+  &__box{
+    padding: 10px;
+    &__head{
+      background-color: steelblue;
+      color: whitesmoke;
+      padding: 10px 10px 10px 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  }
+}
