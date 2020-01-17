@@ -1,0 +1,93 @@
+
+// *** プロジェクト共通設定 *** //
+
+*{
+  box-sizing: border-box;
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+// *** Sass変数とmixin *** //
+$midnight: #010808;
+$pencil: #333;
+
+// *** layout.html関連 *** //
+
+.header{
+  height: 60px;
+  width: 100%;
+  background-color: $midnight;
+  position: fixed;
+  top: 0;
+  left: 0;
+  &__box{
+    padding: 10px;
+    &__left{
+      float: left;
+    }
+    &__right{
+      float: right;
+    }
+  }
+}
+
+.header-logo{
+  line-height: 40px;
+  font-size: 28px;
+  color: whitesmoke;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.header-logo:hover{
+  color: blue;
+}
+
+.header-link{
+  line-height: 40px;
+  color: whitesmoke;
+  text-decoration: none;
+  font-size:16px;
+}
+
+.header-link:hover{
+  color: blue;
+}
+
+.container{
+  margin-top: 60px;
+  padding: 40px;
+}
+
+.footer{
+  background-color: $midnight;
+  height: 100px;
+  &__box{
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &__text{
+      margin: 0 auto;
+    }
+  }
+}
+
+.footer-link{
+  line-height: 40px;
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 16px;
+}
+

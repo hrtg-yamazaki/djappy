@@ -5,12 +5,34 @@
     <meta charset="utf-8">
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
     <link rel="stylesheet" href="{% sass_src 'css/application.scss' %}">
-    <title>practice</title>
+    <title>Djappy</title>
 </head>
 
 <body>
 
-    {% block content %}
-    {% endblock %}
+    <header class='header'>
+        <div class='header__box clearfix'>
+            <div class='header__box__left'>
+                <a href='{% url "djappy:index" %}' class='header-logo'>Djappy</a>
+            </div>
+            <div class='header__box__right'>
+                <a class='header-link' href='#'>menu</a>
+            </div>
+        </div>
+    </header>
 
+    <div class='container'>
+
+      {% block content %}
+      {% endblock %}
+      
+    </div>
+
+    <footer class='footer'>
+        <div class='footer__box'>
+            <div class='footer__box__text'>
+                <a href='#' class='footer-link'>©︎ Hirotsugu Yamazaki</a>
+            </div>
+        </div>
+    </footer>
 </body>

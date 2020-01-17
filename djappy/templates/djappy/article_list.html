@@ -1,5 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>Hello World!</h1>
+<h1>記事一覧</h1>
+
+{% for article in object_list %}
+    <p>{{ article.title }}</p>
+{% endfor %}
+
 {% endblock %}
