@@ -21,12 +21,16 @@ class DetailView(generic.DetailView):
 
 class CreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = Article
-    fields = '__all__'
+    fields = ['title', 'category', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(CreateView, self).form_valid(form)
 
 
 class UpdateView(LoginRequiredMixin, generic.edit.UpdateView):
     model = Article
-    fields = '__all__'
+    fields = ['title', 'category', 'content']
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
