@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
+from django.urls import reverse_lazy
 from .models import Article
 
-# Create your views here.
+
 class IndexView(generic.ListView):
     model = Article
     paginate_by = 6
@@ -21,3 +22,7 @@ class CreateView(generic.edit.CreateView):
 class UpdateView(generic.edit.UpdateView):
     model = Article
     fields = '__all__'
+
+class DeleteView(generic.edit.DeleteView):
+    model = Article
+    success_url = reverse_lazy('djappy:index')

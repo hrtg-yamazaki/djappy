@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2 class='main-contents__box__head'>記事「{{ object.title }}」の削除</h2>
+<p>この記事を削除します。よろしいですか？</p>
+<form action='' method='post'>
+    {% csrf_token %}
+    <button type='submit' class='submit delete'>削除</button>
+</form>
+
+{% endblock %}
+
