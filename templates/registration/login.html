@@ -1,0 +1,25 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+<h2 class='main-contents__box__head'>ログイン</h2>
+<div>
+    {% if form.errors %}
+        <p>もう一度入力してください</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>このページにはアクセス権限がありません</p>
+        {% else %}
+            <p>ログインが必要です</p>
+        {% endif %}
+    {% endif %}
+
+    <form action='{% url "login" %}' method='post'>
+        {% csrf_token %}
+        <input type='hidden' name='next' value='{{ next }}'/>
+        {{ form.as_p }}
+        <button type='submit'>ログイン</button>
+    </form>
+</div>
+{% endblock %}

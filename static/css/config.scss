@@ -29,6 +29,7 @@ a{
 $midnight: #010808;
 $pencil: #333;
 $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+$darksteel: rgb(30, 55, 75);
 
 
 // *** layout.html関連 *** //
@@ -64,6 +65,14 @@ $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
   color: steelblue;
 }
 
+.header-username{
+  font-size: 12px;
+  line-height: 40px;
+  padding-right: 10px;
+  color: whitesmoke;
+  display: inline;
+}
+
 .header-link{
   line-height: 40px;
   color: whitesmoke;
@@ -77,6 +86,7 @@ $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
 
 .container{
   padding: 100px 40px 40px 40px;
+  min-height: calc(100% - 160px);
 }
 
 .footer{
@@ -103,7 +113,9 @@ $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
   color: steelblue;
 }
 
+
 // *** 枠組み *** //
+
 .top-wrapper{
   padding: 0 40px;
   &__left{
@@ -126,9 +138,16 @@ $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
   box-shadow: $default_shadow;
   &__box{
     padding: 10px;
+    &__smallhead{
+      font-size: 12px;
+      border-bottom: 1px solid lightgray;
+      background-color: $darksteel;
+      padding: 10px;
+      color: whitesmoke;
+    }
     &__head{
       border-bottom: 1px solid lightgray;
-      background-color: $midnight;
+      background-color: $darksteel;
       padding: 10px;
       color: whitesmoke;
     }
@@ -161,7 +180,7 @@ $default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
   &__box{
     padding: 10px;
     &__head{
-      background-color: steelblue;
+      background-color: $darksteel;
       color: whitesmoke;
       padding: 10px 10px 10px 20px;
       font-size: 28px;
