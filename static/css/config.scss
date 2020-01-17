@@ -18,9 +18,18 @@ html, body{
 }
 
 
+
+a{
+  text-decoration: none;
+}
+
+
 // *** Sass変数とmixin *** //
+
 $midnight: #010808;
 $pencil: #333;
+$default_shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+
 
 // *** layout.html関連 *** //
 
@@ -48,26 +57,26 @@ $pencil: #333;
   color: whitesmoke;
   text-decoration: none;
   letter-spacing: 2px;
+  padding-left: 40px;
 }
 
 .header-logo:hover{
-  color: blue;
+  color: steelblue;
 }
 
 .header-link{
   line-height: 40px;
   color: whitesmoke;
-  text-decoration: none;
-  font-size:16px;
+  font-size: 16px;
+  padding-right: 10px;
 }
 
 .header-link:hover{
-  color: blue;
+  color: steelblue;
 }
 
 .container{
-  margin-top: 60px;
-  padding: 40px;
+  padding: 100px 40px 40px 40px;
 }
 
 .footer{
@@ -87,7 +96,9 @@ $pencil: #333;
 .footer-link{
   line-height: 40px;
   color: whitesmoke;
-  text-decoration: none;
   font-size: 16px;
 }
 
+.footer-link:hover{
+  color: steelblue;
+}
