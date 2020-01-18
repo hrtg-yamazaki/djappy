@@ -12,6 +12,11 @@ class Category(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(max_length=4095)
+    image = models.ImageField(
+        upload_to='article_images',
+        null=True,
+        blank=True
+    )
     author = models.ForeignKey(
         'auth.User',
         on_delete=models.CASCADE,

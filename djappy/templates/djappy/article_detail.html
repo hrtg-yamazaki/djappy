@@ -20,11 +20,13 @@
     </div>
 </div>
 
-<div class='article-image'>
-    <div class='article-image__box'>
-        {% comment %} <img src=> {% endcomment %}
+{% if article.image %}
+    <div class='article-image'>
+        <div class='article-image__box'>
+            <img src='{{ article.image.url }}' alt='{{ article.title }}' style='max-width:500px; max-height: 500px;'>
+        </div>
     </div>
-</div>
+{% endif %}
 
 <div class='article-content'>
     <div class='article-content__box'>

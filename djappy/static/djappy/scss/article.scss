@@ -1,3 +1,4 @@
+
 // *** index **** //
 
 .top-articles{
@@ -10,15 +11,43 @@
   width: 33.33%;
   padding: 10px;
   &__box{
-    padding: 10px;
     height: 200px;
     border: 1px solid lightgray;
     display: block;
+    text-align: center;
+    overflow: hidden;
+    &__title{
+      padding: 5px;
+      font-size: 14px;
+      color: $pencil;
+    }
+    &__image{
+      display: flex;
+      align-items: center;
+      background-color: rgb(211, 211, 211);
+      height: 148px;
+      width: 100%;
+      margin: 0 auto;
+      img{
+        margin: 0 auto;
+      }
+    }
   }
   &__box:hover{
     color: whitesmoke;
     background-color: steelblue;
   }
+}
+
+.no-image{
+  height: 148px;
+  width: 100%;
+  text-align: center;
+  line-height: 148px;
+  background-color: rgb(211, 211, 211);
+  color: whitesmoke;
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 
@@ -49,6 +78,7 @@
   border-bottom: 1px solid lightgray;
   &__box{
     padding: 10px;
+    text-align: center;
   }
 }
 
