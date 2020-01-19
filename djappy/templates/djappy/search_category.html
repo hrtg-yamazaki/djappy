@@ -6,10 +6,10 @@
     {% if searchForm %}
         <div class='form-wrapper'>
             <div class='form-wrapper__box'>
-                <form action='{% url "djappy:search_title" %}' method='get' class='article-form'>
+                <form action='{% url "djappy:search_category" %}' method='get' class='article-form'>
                     {{ searchForm }}
                     <button type='submit' class='submit'>検索</button>
-                    <a href='{% url "djappy:search_title" %}'>クリア</a>
+                    <a href='{% url "djappy:search_category" %}'>クリア</a>
                 </form>
             </div>
         </div>

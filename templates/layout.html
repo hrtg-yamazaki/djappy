@@ -61,11 +61,11 @@
                             <li class='side-bar__box__content'>
                                 <a href='{% url "djappy:search_title" %}' class='side-bar-link'>タイトルで検索</a>
                             </li>
-                            <li class='side-bar__box__content'>
-                                <a href='#' class='side-bar-link'>ユーザーで検索</a>
-                            </li>
                             <li class='side-bar__box__content' >
-                                <a href='#' class='side-bar-link'>カテゴリで検索</a>
+                                <a href='{% url "djappy:search_category" %}' class='side-bar-link'>カテゴリで検索</a>
+                            </li>
+                            <li class='side-bar__box__content'>
+                                <a href='#' class='side-bar-link'>ユーザーを検索</a>
                             </li>
                         </ul>
                     </div>

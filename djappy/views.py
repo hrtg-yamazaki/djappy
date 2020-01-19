@@ -4,8 +4,8 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
-from .models import Article
-from .forms import TitleSearchForm
+from .models import Article, Category
+from .forms import TitleSearchForm, CategorySearchForm
 
 
 class IndexView(generic.ListView):
@@ -71,3 +71,25 @@ def search_title(request):
         }
 
     return render(request, 'djappy/search_title.html', context)
+
+
+def search_category(request):
+    searchForm = CategorySearchForm(request.GET)
+    if searchForm.is_valid():
+        id = searchForm.cleaned_data['category_id']
+        object_list = Article.objects.filter(category_id=id)
+        context = {
+            'message': '記事の検索',
+            'object_list': object_list,
+            'searchForm': searchForm,
+            'comment': 'タイトルをキーワードに含む記事はありません',
+        }
+    else:
+        searchForm = CategorySearchForm()
+        context = {
+            'message': '記事の検索',
+            'searchForm': searchForm,
+            'comment': 'ヒットした記事がここに表示されます',
+        }
+
+    return render(request, 'djappy/search_category.html', context)
