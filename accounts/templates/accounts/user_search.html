@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2 class='main-contents__box__head'>{{ message }}</h2>
+
+    {% if searchForm %}
+        <div class='form-wrapper'>
+            <div class='form-wrapper__box'>
+                <form action='{% url "accounts:search" %}' method='get' class='article-form'>
+                    {{ searchForm }}
+                    <button type='submit' class='submit'>検索</button>
+                    <a href='{% url "accounts:search" %}'>クリア</a>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if object_list %}
+        <div class='searched-user'>
+            {% for searched_user in object_list %}
+                {% if searched_user.profile.nickname %}
+                    <a href='{% url "accounts:detail" searched_user.pk %}'>{{ searched_user.profile.nickname }}さん</a>
+                {% else %}
+                    <a href='{% url "accounts:detail" searched_user.pk %}'>{{ searched_user.username }}さん</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        {% if comment %}
+            <h2>{{ comment }}</h2>
+        {% endif %}
+    {% endif %}
+
+
+{% endblock %}

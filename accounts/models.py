@@ -34,6 +34,6 @@ class Profile(models.Model):
         return self.nickname
 
     def get_absolute_url(self):
-        return reverse('accounts:detail', kwargs={'pk':self.user.pk})
+        return reverse('accounts:detail', kwargs={'pk':self.user_id})
 
 
