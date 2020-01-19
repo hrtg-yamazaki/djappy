@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2 class='main-contents__box__head'>{{ message }}</h2>
+
+    {% if searchForm %}
+        <div class='form-wrapper'>
+            <div class='form-wrapper__box'>
+                <form action='{% url "djappy:search_title" %}' method='get' class='article-form'>
+                    <div>
+                        {{ searchForm }}
+                        <input type='submit' value='検索'>
+                        <a href='{% url "djappy:search_title" %}'>クリア</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if object_list %}
+        <div class='top-articles top-border'>
+            {% for article in object_list %}
+              <div class='top-article'>
+                  <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
+                      {% if article.image %}
+                          <div class='top-article__box__image'>
+                              <img src='{{ article.image.url }}' alt='{{ article.title }}' style=' max-height: 147px;'>
+                          </div>
+                      {% else %}
+                          <h4 class='no-image'>no image</h4>
+                      {% endif %}
+                      <p class='top-article__box__title'>{{ article.title }}</p>
+                  </a>
+              </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {% if comment %}
+            <h2>{{ comment }}</h2>
+        {% endif %}
+    {% endif %}
+
+
+{% endblock %}

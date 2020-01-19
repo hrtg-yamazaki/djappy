@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from .models import Article
+from .forms import TitleSearchForm
 
 
 class IndexView(generic.ListView):
@@ -48,3 +49,25 @@ class DeleteView(LoginRequiredMixin, generic.edit.DeleteView):
         if obj.author != self.request.user:
             raise PermissionDenied('削除権限がありません')
         return super(DeleteView, self).dispatch(request, *args, **kwargs)
+
+
+def search_title(request):
+    searchForm = TitleSearchForm(request.GET)
+    if searchForm.is_valid():
+        keyword = searchForm.cleaned_data['keyword']
+        object_list = Article.objects.filter(title__contains=keyword).order_by('-created_at')
+        context = {
+            'message': '記事の検索',
+            'object_list': object_list,
+            'searchForm': searchForm,
+            'comment': 'タイトルをキーワードに含む記事はありません',
+        }
+    else:
+        searchForm = TitleSearchForm()
+        context = {
+            'message': '記事の検索',
+            'searchForm': searchForm,
+            'comment': 'ヒットした記事がここに表示されます',
+        }
+
+    return render(request, 'djappy/search_title.html', context)
