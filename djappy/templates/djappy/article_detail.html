@@ -15,7 +15,17 @@
             {% endif %}
         </span>
         <span class='article-info__box__author'>
-            {{ article.author }}さん
+            {% if article.author_id == request.user.id %}
+                <a href='{% url "accounts:detail" request.user.pk %}'>マイページへ</a>
+            {% else %}
+                <a href='{% url "accounts:detail" article.author_id %}'>
+                    {% if article.author.profile.nickname %}
+                        by {{ article.author.profile.nickname }}
+                    {% else %}
+                        by {{ article.author.username }}
+                    {% endif %}
+                </a>
+            {% endif %}
         </span>
     </div>
 </div>
@@ -38,11 +48,11 @@
 
 <div class='article-footer'>
     {% if request.user.id == object.author_id %}
-        <a href='#' class='article-footer__link'>自分の投稿一覧</a>
+        <a href='{% url "accounts:detail" request.user.pk %}' class='article-footer__link'>マイページへ</a>
         <a href='{% url "djappy:update" article.pk %}' class='article-footer__link'>記事の編集</a>
         <a href='{% url "djappy:delete" article.pk %}' class='article-footer__link'>記事の削除</a>
     {% else %}
-        <a href='#' class='article-footer__link'>ユーザーの記事一覧</a>
+        <a href='{% url "accounts:detail" article.author_id %}' class='article-footer__link'>投稿者のページ</a>
     {% endif %}
 </div>
 

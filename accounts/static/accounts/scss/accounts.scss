@@ -1,0 +1,27 @@
+
+// *** user_detail *** //
+
+.user-detail{
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  &__box{
+    padding: 10px;
+    &__text{
+      font-size: 16px;
+      color: $pencil;
+    }
+  }
+}
+
+.user-articles{
+  &__box{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.no-article{
+  padding: 10px;
+  color: $pencil;
+}

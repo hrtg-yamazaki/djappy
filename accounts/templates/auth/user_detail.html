@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class='main-contents__box__head'>
+    {% if user.id == request.user.id %}
+        マイページ
+    {% else %}
+        {% if user.profile.nickname %}
+            {{ user.profile.nickname }}さんのページ
+        {% else %}
+            {{ user.username }}さんのページ
+        {% endif %}
+    {% endif %}
+</h2>
+
+<div class='user-detail'>
+    <div class='user-detail__box'>
+        {% if user.profile %}
+            
+        {% else %}
+            <p class='user-detail__box__text'>まだプロフィールを登録していません</p>
+            {% if user.id == request.user.id %}
+                <a href='#'>登録する</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<div class='user-articles'>
+    <div class='user-articles__box'>
+        {% if user_articles %}
+            {% for article in user_articles %}
+              <div class='top-article'>
+                  <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
+                      {% if article.image %}
+                          <div class='top-article__box__image'>
+                              <img src='{{ article.image.url }}' alt='{{ article.title }}' style=' max-height: 147px;'>
+                          </div>
+                      {% else %}
+                          <h4 class='no-image'>no image</h4>
+                      {% endif %}
+                      <p class='top-article__box__title'>{{ article.title }}</p>
+                  </a>
+              </div>
+            {% endfor %}
+        {% else %}
+            <p class='no-article'>まだ投稿記事がありません</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+

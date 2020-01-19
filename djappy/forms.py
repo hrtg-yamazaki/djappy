@@ -11,5 +11,5 @@ class TitleSearchForm(forms.Form):
 class CategorySearchForm(forms.Form):
     category_id = forms.ModelChoiceField(
         label='カテゴリ検索',
-        queryset= Category.objects.all()
+        queryset= Category.objects.all(),
     )

@@ -7,6 +7,8 @@
 </h2>
 <div>
     <form method='post'>
+        <p>認証用の情報を入力してください</p>
+        <p>ユーザー名を公開したくない場合、次のページで公開用のニックネームを登録することができます。</p>
         {% csrf_token %}
         {{ form.as_p }}
         <button type='submit'>登録</button>

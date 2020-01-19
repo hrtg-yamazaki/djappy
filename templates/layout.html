@@ -29,13 +29,13 @@
                         <ul class='side-bar__box'>
                             {% if user.is_authenticated %}
                                 <h3 class='side-bar__box__smallhead'>
-                                    {{ user }} さん
+                                    ログイン中：{{ request.user }} さん
                               　</h3>
                                 <li class='side-bar__box__content'>
                                     <a href='{% url "djappy:create" %}' class='side-bar-link'>新規投稿</a>
                                 </li>
                                 <li class='side-bar__box__content'>
-                                    <a href='#' class='side-bar-link'>マイページ</a>
+                                    <a href='{% url "accounts:detail" request.user.pk %}' class='side-bar-link'>マイページ</a>
                                 </li>
                                 <li class='side-bar__box__content'>
                                     <a href='{% url "logout" %}' class='side-bar-link'>ログアウト</a>
