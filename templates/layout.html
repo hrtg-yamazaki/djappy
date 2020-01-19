@@ -37,6 +37,15 @@
                                 <li class='side-bar__box__content'>
                                     <a href='{% url "accounts:detail" request.user.pk %}' class='side-bar-link'>マイページ</a>
                                 </li>
+                                {% if request.user.profile %}
+                                    <li class='side-bar__box__content'>
+                                        <a href='{% url "accounts:update" request.user.profile.pk %}' class='side-bar-link'>プロフィール編集</a>
+                                    </li>
+                                {% else %}
+                                    <li class='side-bar__box__content'>
+                                        <a href='{% url "accounts:create" %}' class='side-bar-link'>プロフィール登録</a>
+                                    </li>
+                                {% endif %}
                                 <li class='side-bar__box__content'>
                                     <a href='{% url "logout" %}' class='side-bar-link'>ログアウト</a>
                                 </li>

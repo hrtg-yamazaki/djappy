@@ -77,7 +77,7 @@ def search_category(request):
     searchForm = CategorySearchForm(request.GET)
     if searchForm.is_valid():
         id = searchForm.cleaned_data['category_id']
-        object_list = Article.objects.filter(category_id=id)
+        object_list = Article.objects.filter(category_id=id).order_by('-created_at')
         context = {
             'message': '記事の検索',
             'object_list': object_list,

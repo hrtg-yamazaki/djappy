@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Profile(models.Model):
     user = models.OneToOneField(
@@ -31,5 +31,9 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return self.user
+        return self.nickname
+
+    def get_absolute_url(self):
+        return reverse('accounts:detail', kwargs={'pk':self.user.pk})
+
 

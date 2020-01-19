@@ -17,7 +17,9 @@
 <div class='user-detail'>
     <div class='user-detail__box'>
         {% if user.profile %}
-            
+            <p>{{ user.profile.nickname }}</p>
+            <p>{{ user.profile.gender }}</p>
+            <p>{{ user.profile.introduction }}</p>
         {% else %}
             <p class='user-detail__box__text'>まだプロフィールを登録していません</p>
             {% if user.id == request.user.id %}
