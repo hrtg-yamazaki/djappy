@@ -27,7 +27,7 @@
                 <div class='top-wrapper__left__box'>
                     <div class='side-bar'>
                         <ul class='side-bar__box'>
-                            {% if user.is_authenticated %}
+                            {% if request.user.is_authenticated %}
                                 <h3 class='side-bar__box__smallhead'>
                                     ログイン中：{{ request.user }} さん
                               　</h3>
@@ -73,8 +73,15 @@
                             <li class='side-bar__box__content' >
                                 <a href='{% url "djappy:search_category" %}' class='side-bar-link'>カテゴリで検索</a>
                             </li>
+                        </ul>
+                    </div>
+                    <div class='side-bar serve-bar'>
+                        <ul class='side-bar__box'>
+                            <div class='side-bar__box__head'>
+                                <h3 class='side-head'>ユーザーの検索</p>
+                            </div>
                             <li class='side-bar__box__content'>
-                                <a href='{% url "accounts:search" %}' class='side-bar-link'>ユーザーを検索</a>
+                                <a href='{% url "accounts:search" %}' class='side-bar-link'>ユーザー名で検索</a>
                             </li>
                         </ul>
                     </div>

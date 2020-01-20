@@ -17,11 +17,32 @@
 <div class='user-detail'>
     <div class='user-detail__box'>
         {% if user.profile %}
-            <p>{{ user.profile.nickname }}</p>
-            <p>{{ user.profile.gender }}</p>
-            <p>{{ user.profile.introduction }}</p>
+            <div class='user-detail__box__content'>
+                <h4 class='user-detail__box__content--head'>ニックネーム</h4>
+                {% if user.profile.nickname %}
+                    <p class='user-detail__box__content--inner'>{{ user.profile.nickname }}</p>
+                {% else %}
+                    <p class='user-detail__box__content--inner'>未登録です</p>
+                {% endif %}
+            </div>
+            <div class='user-detail__box__content'>
+                <h4 class='user-detail__box__content--head'>性別</h4>
+                {% if user.profile.gender %}
+                    <p class='user-detail__box__content--inner'>{{ user.profile.gender }}</p>
+                {% else %}
+                    <p class='user-detail__box__content--inner'>未登録です</p>
+                {% endif %}
+            </div>
+            <div class='user-detail__box__content'>
+                <h4 class='user-detail__box__content--head'>自己紹介</h4>
+               {% if user.profile.introduction %}
+                    <p class='user-detail__box__content--inner'>{{ user.profile.introduction }}</p>
+                {% else %}
+                    <p class='user-detail__box__content--inner'>未登録です</p>
+                {% endif %}
+            </div>
         {% else %}
-            <p class='user-detail__box__text'>まだプロフィールを登録していません</p>
+            <p class='no-profile'>まだプロフィールを登録していません</p>
             {% if user.id == request.user.id %}
                 <a href='#'>登録する</a>
             {% endif %}
@@ -53,4 +74,6 @@
 </div>
 
 {% endblock %}
+
+
 

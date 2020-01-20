@@ -5,10 +5,10 @@
 <h2 class='main-contents__box__head'>
     ユーザー新規登録
 </h2>
-<div>
-    <form method='post'>
+<div class='signup-form'>
+    <form method='post' class='article-form'>
         <p>認証用の情報を入力してください</p>
-        <p>ユーザー名を公開したくない場合、次のページで公開用のニックネームを登録することができます。</p>
+        <p>ユーザー名を公開したくない場合、プロフィールを登録すれば公開用のニックネームを登録することができます。</p>
         {% csrf_token %}
         {{ form.as_p }}
         <button type='submit'>登録</button>

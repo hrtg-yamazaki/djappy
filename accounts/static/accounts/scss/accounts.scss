@@ -25,3 +25,45 @@
   padding: 10px;
   color: $pencil;
 }
+
+.user-detail{
+  padding: 10px;
+  &__box{
+    padding: 10px;
+    border-top: 1px solid lightgray;
+    &__content{
+      padding: 10px;
+      border-bottom: 1px solid lightgray;
+      &--head{
+        font-weight: bold;
+      }
+      &--inner{
+        color: $pencil;
+        font-size: 16px;
+        padding: 16px;
+      }
+    }
+  }
+}
+
+.no-profile{
+  color: $pencil;
+  font-size: 16px;
+}
+
+.signup-form{
+  padding: 20px;
+  p{
+    font-size: 14px;
+    label{
+      font-weight: bold;
+    }
+    span{
+      display: block;
+      padding-top: 10px;
+    }
+  }
+  ul{
+    font-size: 14px;
+  }
+}
