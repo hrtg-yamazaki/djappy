@@ -45,6 +45,7 @@ $darksteel: rgb(30, 55, 75);
       float: left;
     }
     &__right{
+      text-align: right;
       float: right;
     }
   }
@@ -63,22 +64,47 @@ $darksteel: rgb(30, 55, 75);
   color: steelblue;
 }
 
-.header-username{
-  font-size: 12px;
+// .header-username{
+//   font-size: 12px;
+//   line-height: 40px;
+//   padding-right: 10px;
+//   color: whitesmoke;
+//   display: inline;
+// }
+
+.header-menu{
   line-height: 40px;
-  padding-right: 10px;
   color: whitesmoke;
-  display: inline;
+  font-size: 24px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.header-close{
+  line-height: 40px;
+  color: whitesmoke;
+  font-size: 24px;
+  padding-right: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+.header-links{
+  display: none;
+  font-size: 14px;
+  background-color: $darksteel;
+  margin-top: 10px;
+  border: 1px solid lightgray;
 }
 
 .header-link{
-  line-height: 40px;
-  color: whitesmoke;
-  font-size: 16px;
   padding-right: 10px;
+  color: whitesmoke;
+  display: block;
+  padding: 10px;
 }
 
-.header-link:hover{
+.header-link:hover, .header-menu:hover, .header-close:hover{
   color: steelblue;
 }
 

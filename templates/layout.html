@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% sass_src 'css/application.scss' %}">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type="text/javascript" src="{% static 'js/djappy.js' %}"></script>
     <title>Djappy</title>
 </head>
 
@@ -16,7 +19,23 @@
                 <a href='{% url "djappy:index" %}' class='header-logo'>Djappy</a>
             </div>
             <div class='header__box__right'>
-                <a class='header-link' href='#'>menu</a>
+                <a class='header-close'>×</a>
+                <a class='header-menu'><i class='fa fa-bars'></i></a>
+                <div class='header-links'>
+                    {% if request.user.is_authenticated %}
+                        <a href='{% url "djappy:create" %}' class='header-link'>新規投稿</a>
+                        <a href='{% url "accounts:detail" request.user.pk %}' class='header-link'>マイページ</a>
+                        {% if request.user.profile %}
+                            <a href='{% url "accounts:update" request.user.profile.pk %}' class='header-link'>プロフィール編集</a>
+                        {% else %}
+                            <a href='{% url "accounts:create" %}' class='header-link'>プロフィール登録</a>
+                        {% endif %}
+                        <a href='{% url "logout" %}' class='header-link'>ログアウト</a>
+                    {% else %}
+                        <a href='{% url "accounts:signup" %}' class='header-link'>新規登録</a>
+                        <a href='{% url "login" %}' class='header-link'>ログイン</a>
+                    {% endif %}
+                </span>
             </div>
         </div>
     </header>
