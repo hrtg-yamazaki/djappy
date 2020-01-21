@@ -1,0 +1,10 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+
+    <h2 class='main-contents__box__head'>{{ message }}</h2>
+    <p class='logout-message'>{{ comment }}</p>
+
+    <a href='{% url "logout" %}' class='logout-button'>ログアウト</a>
+    
+{% endblock %} 

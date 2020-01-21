@@ -69,3 +69,12 @@ def search(request):
         }
 
     return render(request, 'accounts/user_search.html', context)
+
+
+def logout_confirm(request):
+    context = {
+        'message': 'ログアウト確認',
+        'comment': 'ログアウトしてよろしいですか？',
+    }
+
+    return render(request, 'accounts/logout_confirm.html', context)

@@ -213,3 +213,21 @@ $darksteel: rgb(30, 55, 75);
     }
   }
 }
+
+.login-form{
+  padding: 10px;
+  p{
+    padding: 10px;
+  }
+  button{
+    display: block;
+    margin: 10px auto 0 auto;
+    padding: 10px 30px;
+    width: 30%;
+    font-size: 16px;
+    color: whitesmoke;
+    text-align: center;
+    background-color: steelblue;
+    -webkit-appearance: none;
+  }
+}

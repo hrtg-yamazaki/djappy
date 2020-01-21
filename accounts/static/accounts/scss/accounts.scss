@@ -80,3 +80,24 @@
     display: block;
   }
 }
+
+// **** logout, logout_confirm **** //
+
+.logout-message{
+  padding: 10px;
+}
+
+.logout-link{
+  padding: 10px;
+}
+
+.logout-button{
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 10px 30px;
+  width: 30%;
+  font-size: 16px;
+  color: whitesmoke;
+  text-align: center;
+  background-color: steelblue;
+}

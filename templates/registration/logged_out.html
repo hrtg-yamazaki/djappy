@@ -3,8 +3,8 @@
 {% block content %}
 
     <h2 class='main-contents__box__head'>ログアウト</h2>
-    <p>ログアウトが完了しました</p>
+    <p class='logout-message'> ログアウトが完了しました</p>
 
-    <a href='{% url "login" %}'>ログイン</a>
+    <a href='{% url "login" %}' class='logout-link'>再度ログインする</a>
     
 {% endblock %} 
