@@ -11,6 +11,7 @@ class Profile(models.Model):
         max_length=30,
         null=True,
         blank=True,
+        verbose_name='ニックネーム',
     )
     GENDER_SELECT = (
       ('男性', '男性'),
@@ -22,12 +23,14 @@ class Profile(models.Model):
         null=True,
         max_length=10,
         choices=GENDER_SELECT,
-        default='非公開'
+        default='非公開',
+        verbose_name='性別',
     )
     introduction = models.TextField(
         max_length=140,
         null=True,
         blank=True,
+        verbose_name='自己紹介'
     )
 
     def __str__(self):
