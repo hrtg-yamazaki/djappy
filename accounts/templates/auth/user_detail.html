@@ -36,7 +36,7 @@
             <div class='user-detail__box__content'>
                 <h4 class='user-detail__box__content--head'>自己紹介</h4>
                {% if user.profile.introduction %}
-                    <p class='user-detail__box__content--inner'>{{ user.profile.introduction }}</p>
+                    <p class='user-detail__box__content--inner'>{{ user.profile.introduction | linebreaksbr }}</p>
                 {% else %}
                     <p class='user-detail__box__content--inner'>未登録です</p>
                 {% endif %}
@@ -44,7 +44,7 @@
         {% else %}
             <p class='no-profile'>まだプロフィールを登録していません</p>
             {% if user.id == request.user.id %}
-                <a href='#'>登録する</a>
+                <a href='{% url "accounts:create" %}'>登録する</a>
             {% endif %}
         {% endif %}
     </div>
