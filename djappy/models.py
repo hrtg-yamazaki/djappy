@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from markdown import markdown
 
 
 class Category(models.Model):
@@ -38,3 +39,6 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('djappy:detail', kwargs={'pk':self.pk})
+
+    def content_markdown(self):
+        return markdown(self.content)

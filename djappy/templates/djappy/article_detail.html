@@ -40,9 +40,9 @@
 
 <div class='article-content'>
     <div class='article-content__box'>
-        <p class='article-content__box__text'>
-            {{ article.content | linebreaksbr }}
-        </p>
+        <div class='article-content__box__text'>
+            {{ article.content_markdown | safe }}
+        </div>
     </div>
 </div>
 
