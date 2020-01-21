@@ -28,11 +28,6 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    import django_heroku
-    django_heroku.settings(locals())
-
 
 ALLOWED_HOSTS = ['*']
 
@@ -149,3 +144,9 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 MEDIA_URL = '/media/'
+
+
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku
+    django_heroku.settings(locals())
