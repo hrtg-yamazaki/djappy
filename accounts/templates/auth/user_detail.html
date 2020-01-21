@@ -36,7 +36,7 @@
             <div class='user-detail__box__content'>
                 <h4 class='user-detail__box__content--head'>自己紹介</h4>
                {% if user.profile.introduction %}
-                    <p class='user-detail__box__content--inner'>{{ user.profile.introduction | linebreaksbr }}</p>
+                    <div class='user-detail__box__content--inner'>{{ user.profile.introduction_markdown | safe }}</div>
                 {% else %}
                     <p class='user-detail__box__content--inner'>未登録です</p>
                 {% endif %}

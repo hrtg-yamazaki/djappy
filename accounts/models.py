@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from markdown import markdown
 
 class Profile(models.Model):
     user = models.OneToOneField(
@@ -39,4 +40,6 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('accounts:detail', kwargs={'pk':self.user_id})
 
+    def introduction_markdown(self):
+        return markdown(self.introduction)
 
