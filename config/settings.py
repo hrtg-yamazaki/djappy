@@ -154,6 +154,6 @@ if not DEBUG:
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': os.environ['CLOUD_NAME'],
         'API_KEY': os.environ['CLOUDINARY_KEY'],
-        'API_SECRET': os.environ['COUDINARY_SECRET'],
+        'API_SECRET': os.environ['CLOUDINARY_SECRET'],
     }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
