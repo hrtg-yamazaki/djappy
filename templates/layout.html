@@ -44,6 +44,18 @@
         <div class='top-wrapper clearfix'>
             <div class='top-wrapper__left'>
                 <div class='top-wrapper__left__box'>
+                    {% if settings.DEBUG == False %}
+                        <div class='side-bar bottom-space'>
+                            <ul class='side-bar__box'>
+                                <div class='side-bar__box__head'>
+                                    <h3 class='side-head'>当サイトについて</p>
+                                </div>
+                                <li class='side-bar__box__content'>
+                                    <a href='{% url "djappy:detail" 3 %}' class='side-bar-link'>管理人より</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
                     <div class='side-bar'>
                         <ul class='side-bar__box'>
                             {% if request.user.is_authenticated %}
@@ -122,7 +134,7 @@
     <footer class='footer'>
         <div class='footer__box'>
             <div class='footer__box__text'>
-                <a href='#' class='footer-link'>©︎ Hirotsugu Yamazaki</a>
+                <a href='http://hrtg-ymzk.herokuapp.com/' class='footer-link'>©︎ Hirotsugu Yamazaki</a>
             </div>
         </div>
     </footer>
