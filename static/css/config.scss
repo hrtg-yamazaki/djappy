@@ -293,12 +293,7 @@ $darksteel: rgb(30, 55, 75);
 
   .top-wrapper{
     padding: 0;
-    &__left{
-      display: none;
-    }
     &__right{
-      width: 100%;
-      float: none;
       &__box{
         padding: 5px;
       }
@@ -312,11 +307,22 @@ $darksteel: rgb(30, 55, 75);
 }
 
 @media(max-width: 700px){
+
   .header-sp-menu{
     display: inline;
   }
 
   .header-menu{
     display: none;
+  }
+
+  .top-wrapper{
+    &__left{
+      display: none;
+    }
+    &__right{
+      width: 100%;
+      float: none;
+    }
   }
 }

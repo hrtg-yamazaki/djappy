@@ -1,0 +1,12 @@
+<div class='top-article'>
+    <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
+        {% if article.image %}
+            <div class='top-article__box__image'>
+                <img src='{{ article.image.url }}' alt='{{ article.title }}'>
+            </div>
+        {% else %}
+            <h4 class='no-image'>no image</h4>
+        {% endif %}
+        <p class='top-article__box__title'>{{ article.title }}</p>
+    </a>
+</div>

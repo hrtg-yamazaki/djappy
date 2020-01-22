@@ -1,0 +1,72 @@
+{% if DEBUG == False %}
+    <div class='side-bar bottom-space'>
+        <ul class='side-bar__box'>
+            <div class='side-bar__box__head'>
+                <h3 class='side-head'>当サイトについて</p>
+            </div>
+            <li class='side-bar__box__content'>
+                <a href='{% url "djappy:detail" 3 %}' class='side-bar-link'>管理人より</a>
+            </li>
+        </ul>
+    </div>
+{% endif %}
+<div class='side-bar'>
+    <ul class='side-bar__box'>
+        {% if request.user.is_authenticated %}
+            <h3 class='side-bar__box__smallhead'>
+                ログイン中：{{ request.user }} さん
+          　</h3>
+            <li class='side-bar__box__content'>
+                <a href='{% url "djappy:create" %}' class='side-bar-link'>新規投稿</a>
+            </li>
+            <li class='side-bar__box__content'>
+                <a href='{% url "accounts:detail" request.user.pk %}' class='side-bar-link'>マイページ</a>
+            </li>
+            {% if request.user.profile %}
+                <li class='side-bar__box__content'>
+                    <a href='{% url "accounts:update" request.user.profile.pk %}' class='side-bar-link'>プロフィール編集</a>
+                </li>
+            {% else %}
+                <li class='side-bar__box__content'>
+                    <a href='{% url "accounts:create" %}' class='side-bar-link'>プロフィール登録</a>
+                </li>
+            {% endif %}
+            <li class='side-bar__box__content'>
+                <a href='{% url "accounts:logout_confirm" %}' class='side-bar-link'>ログアウト</a>
+            </li>
+        {% else %}
+            <h3 class='side-bar__box__head'>
+                djappyを利用する
+          　</h3>
+            <li class='side-bar__box__content'>
+                <a href='{% url "accounts:signup" %}' class='side-bar-link'>新規登録</a>
+            </li>
+            <li class='side-bar__box__content'>
+                <a href='{% url "login" %}' class='side-bar-link'>ログイン</a>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+<div class='side-bar serve-bar'>
+    <ul class='side-bar__box'>
+        <div class='side-bar__box__head'>
+            <h3 class='side-head'>記事の検索</p>
+        </div>
+        <li class='side-bar__box__content'>
+            <a href='{% url "djappy:search_title" %}' class='side-bar-link'>タイトルで検索</a>
+        </li>
+        <li class='side-bar__box__content' >
+            <a href='{% url "djappy:search_category" %}' class='side-bar-link'>カテゴリで検索</a>
+        </li>
+    </ul>
+</div>
+<div class='side-bar serve-bar'>
+    <ul class='side-bar__box'>
+        <div class='side-bar__box__head'>
+            <h3 class='side-head'>ユーザーの検索</p>
+        </div>
+        <li class='side-bar__box__content'>
+            <a href='{% url "accounts:search" %}' class='side-bar-link'>ユーザー名で検索</a>
+        </li>
+    </ul>
+</div>

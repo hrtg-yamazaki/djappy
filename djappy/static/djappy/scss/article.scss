@@ -24,11 +24,13 @@
     &__image{
       display: flex;
       align-items: center;
-      background-color: rgb(211, 211, 211);
+      background-color: whitesmoke;
       height: 148px;
       width: 100%;
       margin: 0 auto;
+      overflow: hidden;
       img{
+        max-height: 100%;
         margin: 0 auto;
       }
     }
@@ -244,10 +246,11 @@
 
 
 // ***　レスポンシブデザイン関連 *** //
+
 @media(max-width: 1000px){
   
   .top-article{
-    width: 100%;
+    width: 50%;
   }
 
   .article-info__box__datetime{
@@ -278,6 +281,15 @@
 
   #id_image{
     font-size: 12px;
+  }
+
+}
+
+@media(max-width: 550px){
+
+  .top-article{
+    width: 90%;
+    margin: 0 auto;
   }
 
 }

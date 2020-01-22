@@ -54,18 +54,7 @@
     <div class='user-articles__box'>
         {% if user_articles %}
             {% for article in user_articles %}
-              <div class='top-article'>
-                  <a class='top-article__box' href='{% url "djappy:detail" article.pk %}'>
-                      {% if article.image %}
-                          <div class='top-article__box__image'>
-                              <img src='{{ article.image.url }}' alt='{{ article.title }}' style=' max-height: 147px;'>
-                          </div>
-                      {% else %}
-                          <h4 class='no-image'>no image</h4>
-                      {% endif %}
-                      <p class='top-article__box__title'>{{ article.title }}</p>
-                  </a>
-              </div>
+                {% include 'picked_articles.html' %}
             {% endfor %}
         {% else %}
             <p class='no-article'>まだ投稿記事がありません</p>
