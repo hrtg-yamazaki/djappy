@@ -18,5 +18,13 @@ $(function(){
   })
 
 
+  $(".header-sp-menu").click(function(){
+    $(".hidden-menu").slideToggle();
+  })
+
+  $(".hidden-close-sp__button").click(function(){
+    $(".hidden-menu").slideToggle();
+  })
+
 })
 

@@ -79,6 +79,10 @@
   &__box{
     padding: 10px;
     text-align: center;
+    &__img{
+      max-height: 500px;
+      max-width: 100%;
+    }
   }
 }
 
@@ -86,7 +90,7 @@
   color: $pencil;
   border-bottom: 1px solid lightgray;
   &__box{
-    min-height: 300px;
+    min-height: 100px;
     padding: 10px;
     &__text{
       font-size: 16px;
@@ -224,6 +228,7 @@
   color: steelblue;
 }
 
+
 // *** confirm *** //
 
 .article-confirm{
@@ -235,4 +240,44 @@
       font-weight: bold;
     }
   }
+}
+
+
+// ***　レスポンシブデザイン関連 *** //
+@media(max-width: 1000px){
+  
+  .top-article{
+    width: 100%;
+  }
+
+  .article-info__box__datetime{
+    font-size: 10px;
+  }
+
+  .article-info__box__author{
+    font-size: 12px;
+    padding-right: 0;
+  }
+
+  .article-image__box{
+    img{
+      max-width: 100%;
+      max-height: 500px;
+    }
+  }
+
+  .article-footer__link{
+    font-size: 10px;
+  }
+
+  .article-form{
+    button{
+      padding: 10px;
+    }
+  }
+
+  #id_image{
+    font-size: 12px;
+  }
+
 }

@@ -108,6 +108,51 @@ $darksteel: rgb(30, 55, 75);
   color: steelblue;
 }
 
+.header-sp-menu{
+  display: none;
+  line-height: 40px;
+  color: whitesmoke;
+  font-size: 24px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.header-sp-menu:hover{
+  color: steelblue;
+}
+
+.hidden-close-sp{
+  margin: 0 auto;
+  width: 45px;
+  &__button{
+    color: whitesmoke;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  &__button{
+    color: steelblue;
+  }
+}
+
+.hidden-menu{
+  display: none;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  background-color: #888;
+  overflow: scroll;
+  &__box{
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    &--center{
+      width: 100%;
+    }
+  }
+}
+
 .container{
   padding: 100px 40px 40px 40px;
   min-height: calc(100% - 100px);
@@ -160,6 +205,7 @@ $darksteel: rgb(30, 55, 75);
 
 .side-bar{
   box-shadow: $default_shadow;
+  background-color: white;
   &__box{
     padding: 10px;
     &__smallhead{
@@ -234,4 +280,43 @@ $darksteel: rgb(30, 55, 75);
 
 .bottom-space{
   margin-bottom: 10px;
+}
+
+
+// **** レスポンシブデザイン関連 **** //
+
+@media(max-width: 1000px){
+
+  .container{
+    padding: 100px 5px 40px 5px;
+  }
+
+  .top-wrapper{
+    padding: 0;
+    &__left{
+      display: none;
+    }
+    &__right{
+      width: 100%;
+      float: none;
+      &__box{
+        padding: 5px;
+      }
+    }
+  }
+
+  .main-contents__box__head{
+    font-size: 20px;
+  }
+
+}
+
+@media(max-width: 700px){
+  .header-sp-menu{
+    display: inline;
+  }
+
+  .header-menu{
+    display: none;
+  }
 }
