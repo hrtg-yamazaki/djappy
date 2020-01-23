@@ -122,7 +122,7 @@ $darksteel: rgb(30, 55, 75);
 }
 
 .hidden-close-sp{
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   width: 45px;
   &__button{
     color: whitesmoke;
@@ -130,7 +130,7 @@ $darksteel: rgb(30, 55, 75);
     text-align: center;
     cursor: pointer;
   }
-  &__button{
+  &__button:hover{
     color: steelblue;
   }
 }
@@ -279,7 +279,7 @@ $darksteel: rgb(30, 55, 75);
 }
 
 .bottom-space{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 
