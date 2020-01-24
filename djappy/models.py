@@ -38,3 +38,27 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('djappy:detail', kwargs={'pk':self.pk})
+
+
+class Comment(models.Model):
+    content = models.TextField(
+        max_length=500,
+        verbose_name='コメントの内容',
+    )
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+    )
+    author = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.content
+
+    def get_absolute_url(self):
+        return reverse('djappy:detail', kwargs={'pk':self.article_id})
