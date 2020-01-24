@@ -56,7 +56,11 @@
             {% for comment in comment_list %}
                     <div class='comment-section clearfix'>
                         <div class='comment-section__head'>
-                            <span class='comment-section__head__user'>{{ comment.author }}さん</span>
+                            {% if comment.author.profile.nickname %}
+                                <span class='comment-section__head__user'>{{ comment.author.profile.nickname }}さん</span>
+                            {% else %}
+                                <span class='comment-section__head__user'>{{ comment.author }}さん</span>
+                            {% endif %}
                             <span class='comment-section__head__datetime'>{{ comment.created_at }}</span>
                         </div>
                         <div class='comment-section__content'>
