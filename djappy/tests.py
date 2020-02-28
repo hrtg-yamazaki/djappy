@@ -42,7 +42,7 @@ def new_article(test_title, test_content):
 
 class ArticleModelTests(TestCase):
 
-    def test_article_is_valid_with_all_column_filled(self):
+    def test_article_can_be_saved_with_all_column_filled(self):
         """
         全てのカラムが埋まっていれば登録できる
         """
@@ -52,3 +52,28 @@ class ArticleModelTests(TestCase):
         article.save()
         latest_article = Article.objects.latest("created_at")
         self.assertEqual(article.title, latest_article.title)
+
+    def test_article_can_be_saved_with_title_under_255_words(self):
+        """
+        titleが255文字以下なら登録できる
+        """
+        test_title = "1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcde"
+        test_content = "よろしくお願いします"
+        article = new_article(test_title, test_content)
+        article.save()
+        latest_article = Article.objects.latest("created_at")
+        self.assertEqual(article.title, latest_article.title)
+
+    def test_article_can_not_be_saved_with_title_over_256_words(self):
+        """
+        titleが256文字以上だと登録できない
+        """
+        test_title = "1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcdefghij1234567890abcded"
+        test_content = "よろしくお願いします"
+        article = new_article(test_title, test_content)
+        try:
+          article.save()
+        except Exception:
+          self.assertTrue(True)
+        else:
+          self.assertTrue(False)
